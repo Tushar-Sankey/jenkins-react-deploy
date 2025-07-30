@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    nodejs 'node20'   // Matches the name you gave in NodeJS tool config
+    nodejs 'node20'  // Node.js tool name you configured in Jenkins
   }
 
   stages {
@@ -18,16 +18,12 @@ pipeline {
       }
     }
 
-    stage('Build React App') {
+    stage('Build') {
       steps {
         sh 'npm run build'
       }
     }
 
-    stage('Post Build') {
-      steps {
-        echo '✅ React app build complete!'
-      }
-    }
+    // Optional: Add Deploy stage next
   }
 }
